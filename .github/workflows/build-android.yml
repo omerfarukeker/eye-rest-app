@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
+        # Cache'i kaldırdık - package-lock.json yok çünkü
     
     - name: Setup Java JDK
       uses: actions/setup-java@v4
@@ -32,11 +32,6 @@ jobs:
     
     - name: Make gradlew executable
       run: chmod +x android/gradlew
-    
-    - name: Download Gradle Dependencies
-      run: |
-        cd android
-        ./gradlew dependencies || true
     
     - name: Build Android APK
       run: |
